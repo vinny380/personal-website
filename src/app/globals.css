@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@custom-variant dark ([data-theme="dark"] &);
+
+:root {
+  color-scheme: light;
+  --paper: #faf8f3;
+  --ink: #211f1c;
+  --faded: #8d857a;
+  --rust: #a34a28;
+  --highlight: #ecdfc8;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #211e1a;
+  --ink: #e8e2d6;
+  --faded: #938b7c;
+  --rust: #cd8258;
+  --highlight: #46392a;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-faded: var(--faded);
+  --color-rust: var(--rust);
+  --font-serif: var(--font-fraunces);
+  --font-mono: var(--font-plex-mono);
+}
+
+body {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+::selection {
+  background: var(--highlight);
+}
+
+/* claude token heatmap, tinted to match the site's rust in both themes;
+   the widget follows our data-theme attribute on its own.
+   !important on the cell colors because the widget sets its own palette
+   as inline styles on the element — this is the only way to win. */
+claude-token-heatmap {
+  --cth-font: var(--font-plex-mono), monospace;
+  --cth-bg: var(--paper);
+  --cth-text: var(--ink);
+  --cth-text-muted: var(--faded);
+  --cth-border: #e8e0d2;
+  --cth-cell-empty: #efe8dc;
+  --cth-cell-l1: #eed9c5 !important;
+  --cth-cell-l2: #dfab84 !important;
+  --cth-cell-l3: #c47a4e !important;
+  --cth-cell-l4: #a34a28 !important;
+  --cth-year-active-bg: var(--rust) !important;
+  --cth-year-active-text: var(--paper);
+  --cth-bar-color: var(--rust) !important;
+  --cth-bar-hover: #8a3e20 !important;
+}
+
+[data-theme="dark"] claude-token-heatmap {
+  --cth-border: #37312a;
+  --cth-cell-empty: #2b2723;
+  --cth-cell-l1: #46342a !important;
+  --cth-cell-l2: #6f4a33 !important;
+  --cth-cell-l3: #9d663f !important;
+  --cth-cell-l4: #cd8258 !important;
+  --cth-bar-hover: #d99268 !important;
+}
+
+/* gentle fade-up on load, staggered per section via animation-delay */
+.rise {
+  opacity: 0;
+  animation: rise 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* reduced motion: keep the fade, drop the movement */
+@media (prefers-reduced-motion: reduce) {
+  .rise {
+    animation-name: rise-fade;
+  }
+}
+
+@keyframes rise-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
