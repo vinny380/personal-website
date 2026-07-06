@@ -7,7 +7,7 @@ export default function Header() {
     <header className="rise flex items-start justify-between">
       <div>
         <Link href="/">
-          <h1 className="text-2xl">Vinny Purgato</h1>
+          <h1 className="text-2xl font-normal">Vinny Purgato</h1>
         </Link>
         <p className="mt-1 font-mono text-sm text-faded">
           ai engineer at stan · toronto & nyc
