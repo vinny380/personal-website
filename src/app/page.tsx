@@ -32,7 +32,7 @@ export default function Home() {
     <main className="mx-auto max-w-2xl px-6 py-20 sm:py-28">
       <header className="rise flex items-start justify-between">
         <div>
-          <h1 className="text-2xl">Vinny Purgato</h1>
+          <h1 className="text-2xl font-normal">Vinny Purgato</h1>
           <p className="mt-1 font-mono text-sm text-faded">
             ai engineer at stan · toronto & nyc
           </p>
@@ -96,13 +96,6 @@ export default function Home() {
       <Section label="elsewhere" delay="0.32s">
         <LinkRow links={elsewhere} />
       </Section>
-
-      <footer
-        className="rise mt-20 font-mono text-xs text-faded"
-        style={{ animationDelay: "0.4s" }}
-      >
-        typeset in fraunces · toronto, 2026
-      </footer>
     </main>
   );
 }
