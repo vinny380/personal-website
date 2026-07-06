@@ -1,4 +1,5 @@
 import { Fraunces, IBM_Plex_Mono } from "next/font/google";
+import Header from "@/components/Header";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -44,7 +45,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="bg-paper text-ink font-serif font-light antialiased">
-        {children}
+        <div className="mx-auto max-w-2xl px-6 py-20 sm:py-28">
+          <Header />
+          <main>{children}</main>
+        </div>
       </body>
     </html>
   );

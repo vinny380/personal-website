@@ -3,7 +3,6 @@ import LinkRow from "@/components/LinkRow";
 import Section from "@/components/Section";
 import Tense from "@/components/Tense";
 import TextLink from "@/components/TextLink";
-import ThemeToggle from "@/components/ThemeToggle";
 import WritingList from "@/components/WritingList";
 
 const writing = [
@@ -29,17 +28,7 @@ const elsewhere = [
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-2xl px-6 py-20 sm:py-28">
-      <header className="rise flex items-start justify-between">
-        <div>
-          <h1 className="text-2xl font-normal">Vinny Purgato</h1>
-          <p className="mt-1 font-mono text-sm text-faded">
-            ai engineer at stan · toronto & nyc
-          </p>
-        </div>
-        <ThemeToggle />
-      </header>
-
+    <>
       <Section delay="0.08s">
         <div className="space-y-7 text-[1.05rem] leading-relaxed">
           <div className="space-y-3">
@@ -96,6 +85,6 @@ export default function Home() {
       <Section label="elsewhere" delay="0.32s">
         <LinkRow links={elsewhere} />
       </Section>
-    </main>
+    </>
   );
 }
