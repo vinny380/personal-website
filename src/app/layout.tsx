@@ -1,4 +1,5 @@
 import { Fraunces, IBM_Plex_Mono } from "next/font/google";
+import Header from "@/components/Header";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -44,7 +45,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="bg-paper text-ink font-serif antialiased">
-        {children}
+        <div className="mx-auto max-w-2xl px-6 py-20 sm:py-28">
+          <Header />
+          <main>{children}</main>
+          <footer
+            className="rise mt-20 font-mono text-xs text-faded"
+            style={{ animationDelay: "0.4s" }}
+          >
+            typeset in fraunces · toronto, 2026
+          </footer>
+        </div>
       </body>
     </html>
   );
