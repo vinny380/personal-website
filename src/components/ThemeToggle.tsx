@@ -37,8 +37,24 @@ export default function ThemeToggle() {
   function toggle() {
     const root = document.documentElement;
     const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
+    const apply = () => {
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    };
+
+    // crossfade the whole page on the compositor; skip it (instant flip) when
+    // the browser lacks View Transitions or the user prefers reduced motion
+    const doc = document as Document & {
+      startViewTransition?: (cb: () => void) => void;
+    };
+    if (
+      !doc.startViewTransition ||
+      matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      apply();
+    } else {
+      doc.startViewTransition(apply);
+    }
   }
 
   return (

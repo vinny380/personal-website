@@ -41,7 +41,7 @@ const items: InspoItem[] = [
   {
     type: "video",
     id: "zkcQGxtTdxk",
-    title: "Rodrigo Gouveia — That's What I Like (Bruno Mars cover)",
+    title: "Rodrigo Gouveia — That’s What I Like (Bruno Mars cover)",
   },
   {
     type: "video",
@@ -67,7 +67,7 @@ const items: InspoItem[] = [
   {
     type: "video",
     id: "tzNpq0EbiHE",
-    title: "Anderson Silva's KO of Forrest Griffin — UFC 101",
+    title: "Anderson Silva’s KO of Forrest Griffin — UFC 101",
   },
   {
     type: "site",
@@ -84,7 +84,7 @@ const items: InspoItem[] = [
   {
     type: "site",
     href: "https://paulgraham.com/ds.html",
-    title: "Do Things that Don't Scale",
+    title: "Do Things that Don’t Scale",
     note: "the essay every founder gets pointed to eventually",
   },
   {
@@ -133,7 +133,7 @@ const items: InspoItem[] = [
     type: "site",
     href: "https://www.cosmos.so",
     title: "Cosmos",
-    note: "the calmest way to collect what inspires you — this board's spirit animal",
+    note: "the calmest way to collect what inspires you — this board’s spirit animal",
   },
   {
     type: "image",

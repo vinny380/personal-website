@@ -33,13 +33,13 @@ export default function Home() {
         <div className="space-y-7 text-[1.05rem] leading-relaxed">
           <div className="space-y-3">
             <p>
-              <Tense word="present" /> I&apos;m building{" "}
+              <Tense word="present" /> I’m building{" "}
               <TextLink href="https://stanwith.me">Stanley</TextLink>, an AI
               that automates X, LinkedIn, Instagram, Threads, and Substack
               for Creators.
             </p>
             <p>
-              I&apos;m into agent harnesses, Brazilian jiu-jitsu and
+              I’m into agent harnesses, Brazilian jiu-jitsu and
               electric guitar. Currently between Toronto and NYC.
             </p>
           </div>
@@ -47,7 +47,7 @@ export default function Home() {
             <p>
               <Tense word="past" /> I moved from Brazil to Canada at 17 and
               studied CS at{" "}
-              <TextLink href="https://www.queensu.ca">Queen&apos;s</TextLink>.
+              <TextLink href="https://www.queensu.ca">Queen’s</TextLink>.
               Built my first startup, Verus Automated Medical Billing. Then
               moved to Indonesia for an internship at{" "}
               <TextLink href="https://baskit.app">Baskit</TextLink>, my
@@ -56,7 +56,7 @@ export default function Home() {
             </p>
             <p>
               I then went on to win a hackathon in China and part-lecture a
-              university class at Queen&apos;s.
+              university class at Queen’s.
             </p>
             <p>
               After that I worked at{" "}
@@ -76,9 +76,6 @@ export default function Home() {
       </Section>
 
       <Section label="claude" delay="0.24s">
-        <p className="mt-4 text-sm italic text-faded">
-          tokens burned with claude code, updated automatically
-        </p>
         <ClaudeHeatmap user="vinny380" />
       </Section>
 
