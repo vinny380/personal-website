@@ -47,9 +47,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {/* overflow-x-clip: the inspo board breaks out to w-screen, which
           otherwise adds a horizontal scrollbar on OSes with non-overlay bars */}
       <body className="overflow-x-clip bg-paper text-ink font-serif font-light antialiased">
+        <a
+          href="#main"
+          className="sr-only rounded bg-paper px-3 py-2 text-rust outline outline-2 outline-rust focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50"
+        >
+          Skip to content
+        </a>
         <div className="mx-auto max-w-2xl px-6 py-20 sm:py-28">
           <Header />
-          <main>{children}</main>
+          <main id="main">{children}</main>
         </div>
       </body>
     </html>

@@ -6,7 +6,8 @@
   color-scheme: light;
   --paper: #faf8f3;
   --ink: #211f1c;
-  --faded: #8d857a;
+  /* darkened from #8d857a to clear WCAG AA (~4.6:1 on paper) for small text */
+  --faded: #797163;
   --rust: #a34a28;
   --highlight: #ecdfc8;
 }
@@ -29,12 +30,38 @@
   --font-mono: var(--font-plex-mono);
 }
 
-body {
-  transition: background-color 0.4s ease, color 0.4s ease;
+/* theme switch: crossfade the whole page as one GPU-composited snapshot via
+   the View Transitions API (driven from ThemeToggle). Far smoother than
+   repainting hundreds of elements' colors — the heatmap grid + inspo canvas
+   made per-element color transitions stutter. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
 }
 
 ::selection {
   background: var(--highlight);
+}
+
+/* keyboard focus only — mouse/touch users don't see it (WAI-ARIA) */
+:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* tap feedback tinted to the site's rust instead of the default gray box */
+a,
+button {
+  -webkit-tap-highlight-color: color-mix(in srgb, var(--rust) 15%, transparent);
 }
 
 /* claude token heatmap, tinted to match the site's rust in both themes;
@@ -85,10 +112,17 @@ claude-token-heatmap {
   }
 }
 
-/* reduced motion: keep the fade, drop the movement */
+/* reduced motion: keep the entrance fade, drop the movement, and make every
+   other transition (hover scales, theme toggle, color fades) resolve instantly
+   to its end state rather than animating */
 @media (prefers-reduced-motion: reduce) {
   .rise {
     animation-name: rise-fade;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
   }
 }
 

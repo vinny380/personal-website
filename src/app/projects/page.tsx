@@ -1,6 +1,8 @@
 import ProjectList from "@/components/ProjectList";
 import Section from "@/components/Section";
 
+export const metadata = { title: "projects — Vinny Purgato" };
+
 const groups = [
   {
     label: "startup attempts",
@@ -73,7 +75,7 @@ const groups = [
       {
         name: "NoSQL & RAG Lectures",
         href: "https://github.com/vinny380/NoSQL-RAG-Lectures-Taught-By-Me-CISC332",
-        desc: "lectures on NoSQL, RAG & vector DBs I taught at Queen's",
+        desc: "lectures on NoSQL, RAG & vector DBs I taught at Queen’s",
       },
     ],
   },

@@ -17,7 +17,7 @@ export default function Nav() {
         <Link
           key={tab.href}
           href={tab.href}
-          className={`transition-colors hover:text-rust ${
+          className={`-my-1 py-1 transition-colors hover:text-rust ${
             pathname === tab.href ? "text-ink" : "text-faded"
           }`}
         >
