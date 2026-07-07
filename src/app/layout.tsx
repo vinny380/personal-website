@@ -44,7 +44,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="bg-paper text-ink font-serif font-light antialiased">
+      {/* overflow-x-clip: the inspo board breaks out to w-screen, which
+          otherwise adds a horizontal scrollbar on OSes with non-overlay bars */}
+      <body className="overflow-x-clip bg-paper text-ink font-serif font-light antialiased">
         <div className="mx-auto max-w-2xl px-6 py-20 sm:py-28">
           <Header />
           <main>{children}</main>

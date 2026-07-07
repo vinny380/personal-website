@@ -4,7 +4,8 @@ import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   return (
-    <header className="rise flex items-start justify-between">
+    // z-10 keeps the header floating above the full-viewport inspo canvas
+    <header className="rise relative z-10 flex items-start justify-between">
       <div>
         <Link href="/">
           <h1 className="text-2xl font-normal">Vinny Purgato</h1>
