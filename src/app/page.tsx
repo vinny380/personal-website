@@ -1,4 +1,5 @@
 import ClaudeHeatmap from "@/components/ClaudeHeatmap";
+import GitHubHeatmap from "@/components/GitHubHeatmap";
 import LinkRow from "@/components/LinkRow";
 import Section from "@/components/Section";
 import Tense from "@/components/Tense";
@@ -79,7 +80,11 @@ export default function Home() {
         <ClaudeHeatmap user="vinny380" />
       </Section>
 
-      <Section label="elsewhere" delay="0.32s">
+      <Section label="github" delay="0.32s">
+        <GitHubHeatmap user="vinny380" />
+      </Section>
+
+      <Section label="elsewhere" delay="0.40s">
         <LinkRow links={elsewhere} />
       </Section>
     </>

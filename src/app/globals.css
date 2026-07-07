@@ -95,6 +95,168 @@ claude-token-heatmap {
   --cth-bar-hover: #d99268 !important;
 }
 
+/* github contribution heatmap — mirrors the claude-token-heatmap widget's
+   geometry and this site's rust palette so the two graphs read identically */
+.gh-heatmap {
+  --gh-cell-empty: #ebedf0;
+  --gh-l1: #9be9a8;
+  --gh-l2: #40c463;
+  --gh-l3: #30a14e;
+  --gh-l4: #216e3a;
+  --gh-border: #d0d7de;
+  font-family: var(--font-plex-mono), monospace;
+}
+[data-theme="dark"] .gh-heatmap {
+  --gh-cell-empty: #161b22;
+  --gh-l1: #0e4429;
+  --gh-l2: #006d32;
+  --gh-l3: #26a641;
+  --gh-l4: #39d353;
+  --gh-border: #30363d;
+}
+.gh-card {
+  background: var(--paper);
+  border: 1px solid var(--gh-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+.gh-caption {
+  font-size: 13px;
+  color: var(--faded);
+  margin-bottom: 16px;
+}
+.gh-interactive {
+  position: relative;
+}
+.gh-graph-area {
+  position: relative;
+  overflow: hidden;
+}
+.gh-tooltip {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 8px));
+  background: #1b1f24;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.2;
+  white-space: nowrap;
+  padding: 6px 8px;
+  border-radius: 6px;
+  pointer-events: none;
+  z-index: 10;
+}
+.gh-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #1b1f24;
+}
+.gh-months {
+  position: relative;
+  height: 16px;
+  margin-left: 32px;
+  font-size: 10px;
+  color: var(--faded);
+}
+.gh-months span {
+  position: absolute;
+  white-space: nowrap;
+}
+.gh-graph {
+  display: flex;
+  gap: 4px;
+}
+.gh-days {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 1px;
+  width: 28px;
+  flex-shrink: 0;
+}
+.gh-days span {
+  flex: 1;
+  max-height: 15px;
+  font-size: 10px;
+  color: var(--faded);
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+.gh-grid {
+  display: flex;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+.gh-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+.gh-cell {
+  width: 100%;
+  aspect-ratio: 1;
+  max-height: 15px;
+  border-radius: 3px;
+  background: var(--gh-cell-empty);
+  /* github's subtle inset border on every cell */
+  box-shadow: inset 0 0 0 1px rgba(27, 31, 36, 0.06);
+}
+[data-theme="dark"] .gh-cell {
+  box-shadow: inset 0 0 0 1px rgba(240, 246, 252, 0.1);
+}
+.gh-grid .gh-cell[data-date] {
+  cursor: pointer;
+}
+.gh-grid .gh-cell[data-date]:hover {
+  outline: 1px solid var(--ink);
+  outline-offset: -1px;
+}
+.gh-cell-out {
+  background: transparent;
+  box-shadow: none;
+}
+.gh-cell[data-level="1"] {
+  background: var(--gh-l1);
+}
+.gh-cell[data-level="2"] {
+  background: var(--gh-l2);
+}
+.gh-cell[data-level="3"] {
+  background: var(--gh-l3);
+}
+.gh-cell[data-level="4"] {
+  background: var(--gh-l4);
+}
+.gh-foot {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 32px;
+}
+.gh-legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.gh-legend .gh-cell {
+  width: 11px;
+  height: 11px;
+  max-height: none;
+  aspect-ratio: auto;
+}
+.gh-legend-txt {
+  font-size: 11px;
+  color: var(--faded);
+  padding: 0 4px;
+}
+
 /* gentle fade-up on load, staggered per section via animation-delay */
 .rise {
   opacity: 0;
